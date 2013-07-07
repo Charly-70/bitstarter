@@ -4,7 +4,7 @@ var app = express.createServer(express.logger());
 
 var fs = require ('fs');
 
-var buf = fs.readFile('index.html');
+var buf = new Buffer( fs.readFile('index.html') );
 
 app.get('/', function(request, response) {
   //response.send('Hello World 2!');
