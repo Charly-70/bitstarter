@@ -23,19 +23,21 @@
     <script src="https://d396qusza40orc.cloudfront.net/startup%2Fcode%2Fbootstrap.js"></script> <!-- Usado en elementos de la plantilla bootstrap -->
     <link href="http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700,300italic,400italic,500italic,700italic" rel="stylesheet" type="text/css"> <!-- letras usadas en h1 y h2  -->
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,300,400,600,700,800" rel="stylesheet" type="text/css"> <!-- resto de tipos de letra -->
-    <style type="text/css"> <!-- -->
+
+     <!-- Start the style definition block -->
+    <style type="text/css">
 
 /*    <!-- Large desktop -->
       <!-- The navbar is a bit magical. If you notice, in the
-	      mobile view it collapses into a dropdown menu!
-	         We adapt this from one of the examples in the
-		    starter-template, with one twist: we use a media
-		       query for browsers with less than 980px width to
-		          fix an issue where the navbar is pushed too far
-			     down on mobile browsers.
-			        1) http://twitter.github.io/bootstrap/examples/starter-template.html
-				   2) https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Media_queries
-				   -->
+	   mobile view it collapses into a dropdown menu!
+	   We adapt this from one of the examples in the
+	   starter-template, with one twist: we use a media
+	   query for browsers with less than 980px width to
+	   fix an issue where the navbar is pushed too far
+	   down on mobile browsers.
+	   1) http://twitter.github.io/bootstrap/examples/starter-template.html
+	   2) https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Media_queries
+	-->
 */
       @media (min-width: 980px) { 
         body {
@@ -45,7 +47,99 @@
          border-right: 1px white solid; /* linea divisoria vertical de la izda, entre las cifras del semaforo*/
         }
        .linediv-r {
-         border-left: 1px white solid;  /* padding: 2.5% 0%;  /* fotos o videos junto al texto */
+         border-left: 1px white solid;  /* 2ª linea divisoria vertical de la derecha, entre las cifras del semaforo*/
+       }
+      }
+
+      <!--  Landscape phones and down -->
+      <!--  This one is a little tricky. First, we create a new 12
+	    column grid within the enclosing span8 and split
+	    it into three span4's. Then we style them in such
+	    a way that the big number is up top in an h3, and
+	    the small descriptor is underneath in a p. Finally,
+	    we use linediv-l and linediv-c in an interesting
+	    way with the media queries, to give vertical lines
+	    when these spans are laid out horizontally (in a
+	    desktop view) and horizontal lines when laid out
+	    vertically (in a mobile view).
+	    http://twitter.github.io/bootstrap/scaffolding.html#gridSystem
+	    https://developer.mozilla.org/en-US/docs/Web/CSS/border
+	-->
+      @media (max-width: 480px) { 
+       .copy {
+         padding: 2.5% 10%;
+       }
+       .linediv-l {
+         border-bottom: 1px white solid;
+       }
+       .linediv-r {
+         border-top: 1px white solid;
+       }
+      }
+
+/*      <!--  All form factors -->*/
+
+/*      <!-- Main body and headings -->*/
+
+/*      <!-- For the .heading and .subheading class, we use
+	   the built-in p.lead from Bootstrap and also
+	   import and use paired Google Fonts to make the
+	   style look a little less default.
+	   1) www.google.com/fonts/specimen/Ubuntu
+	   2) www.google.com/fonts/specimen/Ubuntu#pairings
+	   3) http://twitter.github.io/bootstrap/basecss.html#typography
+	-->
+*/
+      body{
+        font-family: 'Open Sans', Helvetica, Arial, sans-serif; /* tipos de letra de la pagina en general*/
+      }
+      .heading, .subheading {  /* Formato de cabecera y subcabecera  */  
+        font-family: 'Ubuntu', Helvetica, Arial, sans-serif;  /* tipo de letra de cabecera (texto product, etc.)*/
+        text-align: center; /* Centrado */
+      }
+      p.lead { /* formato de parrafo principal */
+        padding-top: 1.5%;
+        font-size: 24px;
+        line-height: 30px;
+      }
+      p {
+        font-size: 18px;   /* Formato de parrafos */
+        line-height: 24px;
+      }
+
+ /*     <!-- Video pitch and Action -->
+      <!-- For the video placeholder, we make use of
+	   placehold.it, which is great for quick mockups.
+	   we also use an offset of one column in the grid
+	   to indent the video from the side ("span5 offset1").
+	   1) http://twitter.github.io/bootstrap/scaffolding.html#gridSystem
+	-->
+*/
+      .pitch {
+        padding: 2.5% 0%;  /* Separacion entre elementos de la pagina */
+      }
+      .order {
+        padding: 2% 0%; /* Espacio entre elementos del cajetin */ 
+      }
+      .actions {    /* formato de cajetin con botones, etc...  */
+        background-color: #343434;
+        padding: 3% 0%;
+      }
+      .video, .thermometer, .order, .social, .statistics {  /* formato de varios elementos a la vez */ 
+        text-align: center; 
+      }
+      .statistics h3, .statistics p { /* dentro de statistcs, los parrafos, y textos */
+        color: white;
+      }
+
+  /*    <!-- Marketing Copy and Footer -->*/
+      .copy {  /* Formato de cajetines de textos */
+        padding-top: 2.5%;
+        padding-bottom: 2.5%;
+        text-align: justify;
+      }
+      .asset {
+        padding: 2.5% 0%;  /* fotos o videos junto al texto */
       }
       .footer {
         color: #cccccc;
@@ -57,8 +151,10 @@
       .footer a {
         color: #ccccff;
       }
-    </style>
-  </head>
+    </style> <!-- end of style definition block -->
+  </head>  <!-- end of head block -->
+
+  <!-- start the body block -->
   <body>
 
     <!-- Mobile-friendly navbar adapted from example. -->
@@ -106,11 +202,11 @@
 
       <!-- Central area -->
       <!--  For the video placeholder, we make use of
-	        placehold.it, which is great for quick mockups.
-		    we also use an offset of one column in the grid
-		        to indent the video from the side ("span5 offset1").
-			    1) http://twitter.github.io/bootstrap/scaffolding.html#gridSystem
-			    -->
+	    placehold.it, which is great for quick mockups.
+	    we also use an offset of one column in the grid
+	    to indent the video from the side ("span5 offset1").
+	    1) http://twitter.github.io/bootstrap/scaffolding.html#gridSystem
+	-->
       <div class="row-fluid pitch">
         <div class="span5 offset1 video">
           <img class="img-polaroid" src="http://placehold.it/480x300">
@@ -144,10 +240,10 @@
           <div class="span10 offset1">
             <!-- Bootstrap progress bar -->
             <!-- http://twitter.github.io/bootstrap/components.html#progress -->
-	        <!-- The thermometer is straightforward. We just use
-		      the Bootstrap progress bar:
-		       http://twitter.github.io/bootstrap/components.html#progress
-		             -->
+	    <!-- The thermometer is straightforward. We just use
+		 the Bootstrap progress bar:
+		 http://twitter.github.io/bootstrap/components.html#progress
+	      -->
             <div class="thermometer progress active">
               <div class="bar bar-success" style="width: 60%;"></div>
               <div class="bar bar-warning" style="width: 40%;"></div>
@@ -156,14 +252,14 @@
           <div class="span6 offset3 order">
             <!-- Standard Bootstrap button. -->
             <!-- http://twitter.github.io/bootstrap/base-css.html#buttons -->
-	        <!--  The main Preorder button is straightforward; we
-		        use the built in Bootstrap button class. For the
-			  social buttons we need to use bootstrap-socialbuttons
-			    and this forces a FontAwesome import
-			      as well (both of which are in the <head>).
-			        http://twitter.github.io/bootstrap/basecss.html#buttons
-				  http://noizwaves.github.io/bootstrap-socialbuttons
-				        -->
+	    <!--  The main Preorder button is straightforward; we
+		  use the built in Bootstrap button class. For the
+		  social buttons we need to use bootstrap-socialbuttons
+		  and this forces a FontAwesome import
+		  as well (both of which are in the <head>).
+		  http://twitter.github.io/bootstrap/basecss.html#buttons
+		  http://noizwaves.github.io/bootstrap-socialbuttons
+	      -->
             <button class="btn btn-success btn-large">Preorder</button>
           </div>
 
@@ -185,25 +281,25 @@
       <!-- http://placehold.it -->
 
       <!-- The marketing copy uses the text-align CSS
-	      property to justify the text and the img-polaroid
-	         Bootstrap class to style the images, but is
-		    otherwise fairly straightforward. As with the
-		       content further up the page, the overall content
-		          is structured as two five column spans, each
-			     offset 1 span from the side
-			        https://developer.mozilla.org/en-US/docs/Web/CSS/text-align
-				   http://twitter.github.io/bootstrap/basecss.html#images
-				      http://placehold.it
-				      -->
+	   property to justify the text and the img-polaroid
+	   Bootstrap class to style the images, but is
+	   otherwise fairly straightforward. As with the
+	   content further up the page, the overall content
+	   is structured as two five column spans, each
+	   offset 1 span from the side
+	   https://developer.mozilla.org/en-US/docs/Web/CSS/text-align
+	   http://twitter.github.io/bootstrap/basecss.html#images
+	   http://placehold.it
+	-->
       <div class="row-fluid section1">
 
         <div class="span5 offset1 asset">
-	    <!-- image at the left-->
+	  <!-- image at the left-->
           <img class="img-polaroid" src="http://placehold.it/480x300">
         </div>
 
         <div class="span5 copy">
-	    <!-- text at the right-->
+	  <!-- text at the right-->
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
             porta, dui sagittis hendrerit rutrum, nunc leo tempus nisl, eu
@@ -238,7 +334,7 @@
           </p>
         </div>
         <div class="span5 asset">
-	    <!-- The image goes second, at the right  -->
+	  <!-- The image goes second, at the right  -->
           <img class="img-polaroid" src="http://placehold.it/480x300">
         </div>
       </div>   <!-- row-fluid section2 -->
@@ -248,17 +344,17 @@
       <!-- This brings in jquery.js and bootstrap.js as dependencies. -->
       <!-- http://twitter.github.io/bootstrap/javascript.html#collapse -->
       <!-- To get the accordion effect for the FAQ, we
-	      introduce a little JS from the Bootstrap
-	         framework. We need to import jquery.js for
-		    bootstrap.js to work, so both of those go in the <head>. 
-		       Then we use the built-in code from
-		          Bootstrap to add an accordion:
-			     http://twitter.github.io/bootstrap/javascript.html#collapse
-			     -->
+	   introduce a little JS from the Bootstrap
+	   framework. We need to import jquery.js for
+	   bootstrap.js to work, so both of those go in the <head>. 
+	   Then we use the built-in code from
+	   Bootstrap to add an accordion:
+	   http://twitter.github.io/bootstrap/javascript.html#collapse
+	-->
       <div class="row-fluid faq">
           <div class="span10 offset1">
             <h3>FAQ</h3>
-	        <!-- the first acordeon group -->
+	    <!-- the first acordeon group -->
             <div class="accordion" id="accordion2">
               <div class="accordion-group">
                 <div class="accordion-heading">
@@ -273,7 +369,7 @@
                   </div>
                 </div>
               </div>
-	            <!-- The second group -->
+	      <!-- The second group -->
               <div class="accordion-group">
                 <div class="accordion-heading">
                   <a class="accordion-toggle" data-toggle="collapse"
@@ -295,10 +391,10 @@
       <!-- Not crucial, but we put this under a CC By-SA 3.0 license. -->
       <!-- http://creativecommons.org/licenses/ -->
       <!--  Finally, we do a little styling of the footer using
-	        the font color property. We keep it light but just
-		    barely readable, so as not to attract attention.
-		        https://developer.mozilla.org/en-US/docs/Web/CSS/color
-			-->
+	    the font color property. We keep it light but just
+	    barely readable, so as not to attract attention.
+	    https://developer.mozilla.org/en-US/docs/Web/CSS/color
+	-->
       <div class="row-fluid footer">
         <div class="span12">
           <p>This work is licensed under
